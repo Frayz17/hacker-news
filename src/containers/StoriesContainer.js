@@ -12,17 +12,15 @@ export const StoriesContainer = () => {
   const { count } = useInfiniteScroll();
 
   useEffect(() => {
-    getStoryIds().then(data => setStoryIds(data));
-    console.log('count', count);
-  }, [count]);
+    getStoryIds().then((data) => setStoryIds(data));
+  }, []);
 
   return (
     <>
       <GlobalStyle />
-      {/* <useInfiniteScroll /> */}
-      <StoriesContainerWrapper data-test-id="stories-container">
+      <StoriesContainerWrapper data-test-id='stories-container'>
         <h1>Hacker news Stories</h1>
-        {storyIds.slice(0, count).map(storyId => (
+        {storyIds.slice(0, count).map((storyId) => (
           <Story key={storyId} storyId={storyId} />
         ))}
       </StoriesContainerWrapper>
